@@ -8,7 +8,7 @@ Completed automation projects. Each project solves a real problem and includes f
 
 | Project | Description | Tech Stack | Status |
 |---------|-------------|------------|--------|
-| [1. Order Automation for Clothing Store](./1-order-automation-for-clothing-store/) | Form → Google Sheets → Email | n8n, Google Sheets API, Gmail | ✅ Complete |
+| 📂 [View the project](./projects/n8n/1-order-automation-for-clothing-store/) | Form → Google Sheets → Email | n8n, Google Sheets API, Gmail | ✅ Complete |
 
 ---
 
