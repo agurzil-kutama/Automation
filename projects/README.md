@@ -17,7 +17,6 @@ Completed automation projects. Each project solves a real problem and includes f
 Each project folder contains:
 
 - `README.md` — Problem, solution, tech stack, screenshots, skills
-- `workflow.json` (or equivalent) — The actual automation file
 - `screenshots/` — Visual proof of the project
 
 ---
