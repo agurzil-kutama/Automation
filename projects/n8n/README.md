@@ -18,7 +18,7 @@ n8n is a no-code/low-code automation platform. You build workflows by connecting
 
 | Project | Description | Status |
 |---------|-------------|--------|
-| [1. Order Automation for Clothing Store](./1.order-automation-for-clothing-store/) | Form → Google Sheets → Email notification | ✅ Complete |
+| 📂 [View the project](./1-order-automation-for-clothing-store/) | Form → Google Sheets → Email notification | ✅ Complete |
 
 ---
 
