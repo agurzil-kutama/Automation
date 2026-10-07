@@ -39,7 +39,7 @@ automation/
 
 **Status:** ✅ Complete
 
-**📂 [View the project](./1-order-automation-for-clothing-store/)**
+**📂[View the project](./projects/n8n/1-order-automation-for-clothing-store/)**
 
 ---
 
