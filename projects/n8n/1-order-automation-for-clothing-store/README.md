@@ -28,10 +28,18 @@ End-to-end automation using n8n:
 
 ## Screenshots
 
-![n8n Workflow](screenshots/workflow.png)
-![Form](screenshots/form.png)
-![Google Sheet](screenshots/google-sheet.png)
-![Email](screenshots/email.png)
+### Workflow Topology
+![Workflow Topology](screenshots/02-workflow-topology.png)
+
+### Order Form
+![Order Form](screenshots/04-order-form.png)
+
+### Google Sheet Output
+![Google Sheet Output](screenshots/07-google-sheet.png)
+
+### Email Notification
+![Email Subject](screenshots/05-email-subject.png)
+![Email Body](screenshots/06-email-body.png)
 
 ## Skills Demonstrated
 
