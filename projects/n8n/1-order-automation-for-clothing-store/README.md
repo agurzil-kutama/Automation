@@ -86,12 +86,17 @@ This workflow mirrors what happens in a SOC:
 
 ### Screenshots
 
-| Screenshot | What it shows |
-|---|---|
-| `1.png` | The n8n dashboard overview |
-| `2.png` | The three-dot menu with Export JSON and Import options |
-| `3.png` | The workflow in the editor after import |
+**n8n Dashboard**
 
+![n8n dashboard overview](screenshots/1.png)
+
+**Export and Import Menu**
+
+![Export JSON and Import options in n8n](screenshots/2.png)
+
+**Workflow Topology**
+
+![Workflow topology in n8n editor](screenshots/3.png)
 ## Connect
 
 - **LinkedIn:** [linkedin.com/in/adel-boutaghane](https://www.linkedin.com/in/adel-boutaghane-54b982386)
