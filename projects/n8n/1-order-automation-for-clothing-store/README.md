@@ -59,12 +59,38 @@ This workflow mirrors what happens in a SOC:
 | Send email | Notify analyst |
 | n8n workflow | SOAR playbook |
 
-## How to Use
+#### Files
 
-1. Download `workflow.json`
-2. Import into n8n
-3. Configure credentials (Google Sheets, Gmail)
-4. Activate the workflow
+| File | Purpose |
+|---|---|
+| `workflow.json` | Sanitized n8n export. Import this to run the workflow. |
+| `screenshots/` | Visual proof of the workflow in action. |
+
+### How to Export a Workflow from n8n
+
+1. Open the workflow in your n8n instance.
+2. Click the **three-dot menu (⋯)** in the top-right of the workflow editor.
+3. Select **Export JSON**.
+4. The file downloads as `<workflow-name>.json`.
+
+### How to Import a Workflow into n8n
+
+1. Open your n8n instance.
+2. Click the **three-dot menu (⋯)** next to your workflow list, or in the editor.
+3. Select **Import** → **From File**.
+4. Choose the `workflow.json` file.
+5. The workflow opens in the editor. Credential warnings appear on the Gmail and Google Sheets nodes — this is expected.
+6. Click each node with a warning and configure your own credentials.
+7. Replace the placeholders (`YOUR-WEBHOOK-ID`, `YOUR-SHEET-ID`, `your-email@example.com`) with your own values.
+8. Save and activate the workflow.
+
+### Screenshots
+
+| Screenshot | What it shows |
+|---|---|
+| `1.png` | The n8n dashboard overview |
+| `2.png` | The three-dot menu with Export JSON and Import options |
+| `3.png` | The workflow in the editor after import |
 
 ## Connect
 
