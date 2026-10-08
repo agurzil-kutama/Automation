@@ -1,1 +1,86 @@
-
+{
+  "name": "Order Automation for Clothing Store (Demo)",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Order Form",
+        "formDescription": "Fill in the form",
+        "formFields": {
+          "values": [
+            { "fieldLabel": "Full name", "fieldName": "Full name", "placeholder": "What is your name?", "requiredField": true },
+            { "fieldLabel": "Phone", "fieldName": "Phone", "placeholder": "05 / 06 / 07 XX XX XX XX", "requiredField": true },
+            { "fieldLabel": "Email", "fieldType": "email", "fieldName": "Email", "placeholder": "example@example.com" },
+            { "fieldLabel": "Wilaya", "fieldType": "dropdown", "fieldName": "Wilaya", "fieldOptions": { "values": [
+              { "option": "01 - Adrar" }, { "option": "09 - Blida" }, { "option": "16 - Alger" }, { "option": "31 - Oran" }, { "option": "25 - Constantine" }
+            ]}, "requiredField": true },
+            { "fieldLabel": "Commune", "fieldName": "Commune", "placeholder": "ex: Draria", "requiredField": true },
+            { "fieldLabel": "Address", "fieldName": "Address", "placeholder": "Street, cité, building", "requiredField": true },
+            { "fieldLabel": "Product", "fieldName": "Product", "placeholder": "Outfit name or reference", "requiredField": true },
+            { "fieldLabel": "Size", "fieldType": "dropdown", "fieldName": "Size", "fieldOptions": { "values": [
+              { "option": "S" }, { "option": "M" }, { "option": "L" }, { "option": "XL" }, { "option": "2XL" }, { "option": "3XL" }
+            ]}, "requiredField": true },
+            { "fieldLabel": "Color", "fieldName": "Color", "placeholder": "ex: Black", "requiredField": true },
+            { "fieldLabel": "Quantity", "fieldType": "number", "fieldName": "Quantity", "placeholder": "1", "requiredField": true },
+            { "fieldLabel": "Delivery type", "fieldType": "dropdown", "fieldName": "Delivery type", "fieldOptions": { "values": [
+              { "option": "Home delivery" }, { "option": "Stop desk" }
+            ]}, "requiredField": true },
+            { "fieldLabel": "Payment", "fieldType": "dropdown", "fieldName": "Payment", "fieldOptions": { "values": [
+              { "option": "Cash on delivery" }, { "option": "BaridiMob / CCP" }
+            ]}, "requiredField": true },
+            { "fieldLabel": "Notes", "fieldType": "textarea", "fieldName": "Notes", "placeholder": "Anything else? Tell us!" }
+          ]
+        },
+        "options": { "appendAttribution": false, "path": "order-form" }
+      },
+      "id": "a03dfe71-9b5e-4cf8-ae61-c39292812d6e",
+      "name": "On form submission",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.6,
+      "position": [0, 0],
+      "webhookId": "YOUR-WEBHOOK-ID"
+    },
+    {
+      "parameters": {
+        "sendTo": "your-email@example.com",
+        "subject": "=New order: {{ $json[\"Product\"] }} x{{ $json[\"Quantity\"] }} - {{ $json[\"Full name\"] }} ({{ $json[\"Wilaya\"] }})",
+        "emailType": "text",
+        "message": "=New order received!\n\nCUSTOMER\nName: {{ $json[\"Full name\"] }}\nPhone: {{ $json[\"Phone\"] }}\nEmail: {{ $json[\"Email\"] }}\n\nDELIVERY\nWilaya: {{ $json[\"Wilaya\"] }}\nCommune: {{ $json[\"Commune\"] }}\nAddress: {{ $json[\"Address\"] }}\nDelivery type: {{ $json[\"Delivery type\"] }}\n\nORDER\nProduct: {{ $json[\"Product\"] }}\nSize: {{ $json[\"Size\"] }}\nColor: {{ $json[\"Color\"] }}\nQuantity: {{ $json[\"Quantity\"] }}\nPayment: {{ $json[\"Payment\"] }}\n\nNotes: {{ $json[\"Notes\"] }}\nOrdered at: {{ $json.submittedAt }}",
+        "options": { "appendAttribution": false }
+      },
+      "id": "9737f5c0-4590-4612-addb-846a434b9a44",
+      "name": "Send a message",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [224, 80],
+      "webhookId": "YOUR-WEBHOOK-ID"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": { "__rl": true, "value": "YOUR-SHEET-ID", "mode": "list", "cachedResultName": "Order Sheet", "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR-SHEET-ID/edit" },
+        "sheetName": { "__rl": true, "value": "gid=0", "mode": "list", "cachedResultName": "Sheet1", "cachedResultUrl": "https://docs.google.com/spreadsheets/d/YOUR-SHEET-ID/edit#gid=0" },
+        "columns": { "mappingMode": "autoMapInputData", "value": {}, "matchingColumns": [], "attemptToConvertTypes": false, "convertFieldsToString": false },
+        "options": {}
+      },
+      "id": "c5786a43-58ca-49fb-827c-5126817e8d38",
+      "name": "Append row in sheet",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [224, -96]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "On form submission": {
+      "main": [[
+        { "node": "Send a message", "type": "main", "index": 0 },
+        { "node": "Append row in sheet", "type": "main", "index": 0 }
+      ]]
+    }
+  },
+  "active": false,
+  "settings": { "executionOrder": "v1", "binaryMode": "separate" },
+  "meta": { "templateCredsSetupCompleted": false },
+  "nodeGroups": [],
+  "tags": []
+}
